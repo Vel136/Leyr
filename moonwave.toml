@@ -1,0 +1,24 @@
+[moonwave]
+sourceDir = ["docs"]
+
+[docusaurus]
+title = "Leyr"
+tagline = "Custom, Fast, Accurate"
+url = "https://vel136.github.io"
+baseUrl = "/Leyr/"
+
+[home]
+enabled = true
+includeReadme = true
+
+[[classOrder]]
+section = "Core"
+classes = ["RaycastDynamic", "RaycastStatic"]
+
+[[classOrder]]
+section = "Types"
+classes = ["Types"]
+
+[footer]
+style = "dark"
+copyright = "Copyright © 2026 VeDevelopment"
