@@ -61,3 +61,12 @@ RC:UpdateTransform(part) -- reads part.Size and part.CFrame
 ## Mesh, Hull, Ellipsoid
 
 These type bits are reserved in the shape-type table for future use but have no constructor or ray test yet. Attempting to raycast against a shape with one of these types returns no hit.
+
+## Known Limitation: MeshParts
+
+`Leyr.from_part` (and therefore the default, no-override path of `Insert`) only accepts `Part` instances. Passing a `MeshPart` raises `"Raycast only supports primitive Parts (got MeshPart)"` - there is no analytic ray test for arbitrary mesh geometry, and no automatic fallback to `workspace:Raycast` for it.
+
+If you need to include MeshParts in your query world, either:
+
+- Approximate the mesh with one of the supported primitives and pass it as the `Insert` shape override, or
+- Keep MeshParts out of the tree entirely and query them separately with `workspace:Raycast`, then compare the two results by `Distance` yourself.

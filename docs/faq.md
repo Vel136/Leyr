@@ -62,6 +62,12 @@ It's stored on the shape but is not currently applied as a Minkowski-sum inflati
 
 ---
 
+**Can I `Insert` a MeshPart?**
+
+Not directly - `from_part` only accepts `Part` instances and raises `"Raycast only supports primitive Parts (got MeshPart)"` for anything else, including MeshParts. There's no automatic fallback to `workspace:Raycast` for unsupported instance types. Either pass an approximating primitive shape as the `Insert` override, or query MeshParts separately with `workspace:Raycast` and merge the two results by `Distance`. See [Shapes](./guides/shapes#known-limitation-meshparts).
+
+---
+
 **My cylinder shape errors with "cylinder does not have a consistent radius".**
 
 `from_part` requires `part.Size.Y == part.Size.Z` for a cylinder, since Leyr's cylinder shape has one radius, not independent Y/Z extents. If your part is scaled non-uniformly on those axes, construct the shape manually with `Leyr.cylinder(radius, height)` instead.
