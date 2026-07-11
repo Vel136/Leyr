@@ -4,7 +4,7 @@
 	Broadphase + narrow-phase raycasting against proxies that don't move
 	after insertion.
 
-	Insert and remove are cheap — they don't refit anything. The tree is
+	Insert and remove are cheap - they don't refit anything. The tree is
 	marked dirty on any change and rebuilt lazily, in full, the next time
 	[RaycastStatic:Raycast] is called.
 
@@ -49,7 +49,7 @@ function RaycastStatic:Remove(instance: Instance) end
 
 --[=[
 	Forces a full SAH rebuild now. Calling this is only needed to control
-	*when* the rebuild cost is paid — the first `Raycast()` after any change
+	*when* the rebuild cost is paid - the first `Raycast()` after any change
 	rebuilds automatically if this was never called.
 
 	```lua
@@ -67,7 +67,7 @@ function RaycastStatic:Clear() end
 	Returns the nearest hit along the segment `origin -> origin + direction`,
 	or `nil` if nothing was hit. Rebuilds the tree first if it's dirty.
 
-	`direction` is the raw displacement vector, not a unit vector — its
+	`direction` is the raw displacement vector, not a unit vector - its
 	magnitude is the cast distance, matching `workspace:Raycast`.
 
 	Proxies the ray originates inside are ignored, matching native

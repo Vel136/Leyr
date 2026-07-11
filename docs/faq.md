@@ -18,13 +18,13 @@ Leyr is a spatial raycasting library for Roblox. It bundles shape constructors, 
 
 **Is Leyr free?**
 
-Yes — MIT. Use it however you want, commercial or otherwise.
+Yes - MIT. Use it however you want, commercial or otherwise.
 
 ---
 
 **Does Leyr replace `workspace:Raycast`?**
 
-Not automatically — you choose what to insert. Leyr queries only the proxies you've explicitly added to a `RaycastDynamic` or `RaycastStatic` instance. This is what makes it possible to raycast against shapes with no backing Instance, or to build a query world that's a deliberate subset of the datamodel.
+Not automatically - you choose what to insert. Leyr queries only the proxies you've explicitly added to a `RaycastDynamic` or `RaycastStatic` instance. This is what makes it possible to raycast against shapes with no backing Instance, or to build a query world that's a deliberate subset of the datamodel.
 
 ---
 
@@ -32,7 +32,7 @@ Not automatically — you choose what to insert. Leyr queries only the proxies y
 
 **Where does the Leyr folder go?**
 
-`ReplicatedStorage`, or anywhere reachable from wherever you require it. Leyr has no client/server split of its own — it's pure computation with no RunService connections and no networking.
+`ReplicatedStorage`, or anywhere reachable from wherever you require it. Leyr has no client/server split of its own - it's pure computation with no RunService connections and no networking.
 
 ---
 
@@ -46,19 +46,19 @@ One per logical query domain. If you have geometry that never moves (terrain, le
 
 **What shapes are supported?**
 
-Box, sphere, capsule, cylinder, wedge, and corner wedge — the same primitive set as Roblox's `Part.Shape` enum, plus the two wedge variants. Mesh, hull, and ellipsoid are reserved in the shape-type table but not yet implemented as ray tests.
+Box, sphere, capsule, cylinder, wedge, and corner wedge - the same primitive set as Roblox's `Part.Shape` enum, plus the two wedge variants. Mesh, hull, and ellipsoid are reserved in the shape-type table but not yet implemented as ray tests.
 
 ---
 
 **What does `convexRadius` do?**
 
-It's stored on the shape but is not currently applied as a Minkowski-sum inflation in the ray tests — the narrow-phase tests operate on the exact shape as specified. Leave it at the default unless you have a specific reason to override it.
+It's stored on the shape but is not currently applied as a Minkowski-sum inflation in the ray tests - the narrow-phase tests operate on the exact shape as specified. Leave it at the default unless you have a specific reason to override it.
 
 ---
 
 **`Leyr.from_part` throws "unsupported part shape". Why?**
 
-`from_part` only recognizes `Enum.PartType.Block`, `Ball`, `Cylinder`, `Wedge`, and `CornerWedge` on a `Part` instance. MeshParts, unions, and other part classes aren't derivable automatically — construct a shape explicitly and pass it as the `Insert` override instead.
+`from_part` only recognizes `Enum.PartType.Block`, `Ball`, `Cylinder`, `Wedge`, and `CornerWedge` on a `Part` instance. MeshParts, unions, and other part classes aren't derivable automatically - construct a shape explicitly and pass it as the `Insert` override instead.
 
 ---
 
@@ -84,7 +84,7 @@ Depends on how much movement and insertion churn your scene has. Frequent moves 
 
 **Does `RaycastStatic:Build()` do anything I need to call manually?**
 
-Not strictly — the first `Raycast()` call after any `Insert`/`Remove` rebuilds automatically. Call `Build()` yourself only if you want to control exactly when that cost is paid, e.g. during a loading screen rather than on the first query of gameplay.
+Not strictly - the first `Raycast()` call after any `Insert`/`Remove` rebuilds automatically. Call `Build()` yourself only if you want to control exactly when that cost is paid, e.g. during a loading screen rather than on the first query of gameplay.
 
 ---
 
@@ -92,19 +92,19 @@ Not strictly — the first `Raycast()` call after any `Insert`/`Remove` rebuilds
 
 **What does `Raycast` return?**
 
-`{ Instance, Position, Normal, Distance } | nil` — the same shape as a Roblox `RaycastResult`, with `Instance` set to whatever you passed to `Insert` for that proxy.
+`{ Instance, Position, Normal, Distance } | nil` - the same shape as a Roblox `RaycastResult`, with `Instance` set to whatever you passed to `Insert` for that proxy.
 
 ---
 
 **Why did my ray pass through something it should have hit?**
 
-Check whether the ray originates inside that shape. Leyr discards inside-origin hits to match native `workspace:Raycast` semantics — the ray continues past that proxy to the next candidate rather than reporting the exit point.
+Check whether the ray originates inside that shape. Leyr discards inside-origin hits to match native `workspace:Raycast` semantics - the ray continues past that proxy to the next candidate rather than reporting the exit point.
 
 ---
 
 **Can I filter which proxies are considered?**
 
-Yes — pass a third argument to `Raycast`, a function `(instance: Instance) -> boolean`. Return `false` to exclude that proxy from the result; the query moves on to the next candidate.
+Yes - pass a third argument to `Raycast`, a function `(instance: Instance) -> boolean`. Return `false` to exclude that proxy from the result; the query moves on to the next candidate.
 
 ```lua
 RC:Raycast(origin, direction, function(instance)
@@ -124,4 +124,4 @@ The fused broadphase + narrow-phase traversal (`query_nearest`) uses module-leve
 
 **How is this different from `workspace:Raycast`?**
 
-`workspace:Raycast` queries the live datamodel and only sees Parts that actually exist in `workspace`. Leyr queries an explicit proxy set you build yourself, which can include shapes with no backing Instance, shapes positioned independently of any part's actual CFrame, or a deliberately restricted subset of the world — at the cost of having to keep that proxy set in sync yourself.
+`workspace:Raycast` queries the live datamodel and only sees Parts that actually exist in `workspace`. Leyr queries an explicit proxy set you build yourself, which can include shapes with no backing Instance, shapes positioned independently of any part's actual CFrame, or a deliberately restricted subset of the world - at the cost of having to keep that proxy set in sync yourself.

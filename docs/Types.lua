@@ -61,7 +61,7 @@ function Types.cylinder(radius: number, height: number, convexRadius: number?): 
 
 --[=[
 	Builds a wedge shape from a full size (not half-extents). Orientation
-	matches Roblox's wedge part — the sloped face rises toward `+Z`.
+	matches Roblox's wedge part - the sloped face rises toward `+Z`.
 
 	@param size Vector3
 	@param convexRadius number? -- Defaults to `0.05`.
@@ -84,7 +84,7 @@ function Types.corner_wedge(size: Vector3, convexRadius: number?): any end
 
 	Only `Enum.PartType.Block`, `Ball`, `Cylinder`, `Wedge`, and `CornerWedge`
 	are supported. Cylinders require `Size.Y == Size.Z`. Only `Part` instances
-	are accepted — errors on any other `BasePart` subclass.
+	are accepted - errors on any other `BasePart` subclass.
 
 	@param part BasePart
 	@param convexRadius number? -- Defaults to `0.05`.
@@ -100,7 +100,7 @@ function Types.from_part(part: BasePart, convexRadius: number?): any end
 	.Normal Vector3
 	.Distance number
 
-	The value returned by `Raycast` on a hit — matches the shape of a native
+	The value returned by `Raycast` on a hit - matches the shape of a native
 	Roblox `RaycastResult`.
 ]=]
 

@@ -24,10 +24,10 @@ Leyr.from_part(part: BasePart, convexRadius: number?)
 
 Box, wedge, and corner wedge take a `Vector3` size and store half-extents. Wedge and corner-wedge orientation matches Roblox's own wedge and corner-wedge parts:
 
-- **Wedge** — the sloped face rises toward `+Z`. Half-extents map to CFrame axes as `X = Right`, `Y = Up`, `Z = Look`.
-- **Corner wedge** — five faces: `+X` end, bottom, `+Z` wall, and two slanted faces through the local origin. Same axis mapping as wedge.
+- **Wedge** - the sloped face rises toward `+Z`. Half-extents map to CFrame axes as `X = Right`, `Y = Up`, `Z = Look`.
+- **Corner wedge** - five faces: `+X` end, bottom, `+Z` wall, and two slanted faces through the local origin. Same axis mapping as wedge.
 
-Capsule and cylinder take `radius` and `height` (not half-height) and are oriented along the CFrame's **`RightVector`** — i.e. the local X axis, not Y as you might expect from a vertical capsule intuition. A capsule standing upright needs a CFrame rotated so `RightVector` points up.
+Capsule and cylinder take `radius` and `height` (not half-height) and are oriented along the CFrame's **`RightVector`** - i.e. the local X axis, not Y as you might expect from a vertical capsule intuition. A capsule standing upright needs a CFrame rotated so `RightVector` points up.
 
 ```lua
 local upright = CFrame.new(pos) * CFrame.Angles(0, 0, math.rad(90))
@@ -46,7 +46,7 @@ Derives a shape directly from a `Part`'s `Shape` and `Size` properties:
 | `Enum.PartType.Wedge` | wedge |
 | `Enum.PartType.CornerWedge` | corner wedge |
 
-Only `Part` instances are accepted — MeshParts, unions, and other classes raise an error. Build a shape explicitly for those instead.
+Only `Part` instances are accepted - MeshParts, unions, and other classes raise an error. Build a shape explicitly for those instead.
 
 `from_part` is called automatically by `Insert` when no shape override is given, so most call sites never need to call it directly.
 

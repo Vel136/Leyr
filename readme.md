@@ -8,16 +8,16 @@
 
 ---
 
-Leyr is a self-contained spatial raycasting library for Roblox. It bundles primitive shape support, a broadphase AABB tree, and analytic narrow-phase ray tests into a single module — no dependency on `workspace:Raycast`, no `RaycastParams`, no datamodel Parts required to query against.
+Leyr is a self-contained spatial raycasting library for Roblox. It bundles primitive shape support, a broadphase AABB tree, and analytic narrow-phase ray tests into a single module - no dependency on `workspace:Raycast`, no `RaycastParams`, no datamodel Parts required to query against.
 
 ## Features
 
-- **Custom** — insert any primitive shape (box, sphere, capsule, cylinder, wedge, corner wedge) at any CFrame, independent of whether an Instance exists in the datamodel
-- **Fast** — a fused broadphase + narrow-phase traversal visits the AABB tree in distance order and prunes subtrees beyond the closest confirmed hit; SAH-built static trees and incrementally-refit dynamic trees
-- **Accurate** — analytic per-shape ray tests validated against Roblox's own `workspace:Raycast`, with convex-radius support and correct inside-origin handling
-- **Two tree flavors** — `RaycastDynamic` for proxies that move every frame (incremental insert/remove/move with lazy partial rebuilds), and `RaycastStatic` for a world that doesn't move (lazy full rebuild on first query after a change)
-- **Roblox-shaped results** — every hit returns `{ Instance, Position, Normal, Distance }`, so it drops into existing raycast-based code with minimal changes
-- **`--!strict` throughout** — fully typed, no `--!nocheck` escape hatches
+- **Custom** - insert any primitive shape (box, sphere, capsule, cylinder, wedge, corner wedge) at any CFrame, independent of whether an Instance exists in the datamodel
+- **Fast** - a fused broadphase + narrow-phase traversal visits the AABB tree in distance order and prunes subtrees beyond the closest confirmed hit; SAH-built static trees and incrementally-refit dynamic trees
+- **Accurate** - analytic per-shape ray tests validated against Roblox's own `workspace:Raycast`, with convex-radius support and correct inside-origin handling
+- **Two tree flavors** - `RaycastDynamic` for proxies that move every frame (incremental insert/remove/move with lazy partial rebuilds), and `RaycastStatic` for a world that doesn't move (lazy full rebuild on first query after a change)
+- **Roblox-shaped results** - every hit returns `{ Instance, Position, Normal, Distance }`, so it drops into existing raycast-based code with minimal changes
+- **`--!strict` throughout** - fully typed, no `--!nocheck` escape hatches
 
 ## Installation
 
@@ -72,4 +72,4 @@ Shape constructors: `Leyr.box`, `Leyr.sphere`, `Leyr.capsule`, `Leyr.cylinder`, 
 
 ## License
 
-MIT License — Copyright © 2026 VeDevelopment
+MIT License - Copyright (c) 2026 VeDevelopment

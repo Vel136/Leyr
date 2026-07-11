@@ -7,7 +7,7 @@
 	Insertion picks the sibling that minimizes surface-area cost. Movement is
 	incremental: a small move is absorbed into the leaf's padded AABB with no
 	tree change, and a move outside that padding triggers a remove/reinsert.
-	Heavy churn loosens the tree's balance over time — call [RaycastDynamic:Rebuild]
+	Heavy churn loosens the tree's balance over time - call [RaycastDynamic:Rebuild]
 	periodically to restore query quality.
 
 	```lua
@@ -93,7 +93,7 @@ function RaycastDynamic:Clear() end
 	Returns the nearest hit along the segment `origin -> origin + direction`,
 	or `nil` if nothing was hit.
 
-	`direction` is the raw displacement vector, not a unit vector — its
+	`direction` is the raw displacement vector, not a unit vector - its
 	magnitude is the cast distance, matching `workspace:Raycast`.
 
 	Proxies the ray originates inside are ignored, matching native

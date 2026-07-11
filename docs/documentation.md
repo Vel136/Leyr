@@ -5,7 +5,7 @@ sidebar_label: "Documentation"
 
 # Custom, Fast, Accurate
 
-Leyr is a spatial raycasting library for Roblox. It replaces `workspace:Raycast` with a self-contained AABB tree and a set of analytic per-shape ray tests, so you can raycast against custom geometry — shapes with no backing Instance, shapes at arbitrary CFrames, shapes that don't match any live part — with the same result shape Roblox gives you.
+Leyr is a spatial raycasting library for Roblox. It replaces `workspace:Raycast` with a self-contained AABB tree and a set of analytic per-shape ray tests, so you can raycast against custom geometry - shapes with no backing Instance, shapes at arbitrary CFrames, shapes that don't match any live part - with the same result shape Roblox gives you.
 
 ---
 
@@ -33,13 +33,13 @@ if hit then
 end
 ```
 
-`direction` is the raw displacement vector for the segment, not a unit vector — its magnitude is the cast distance, matching `workspace:Raycast`.
+`direction` is the raw displacement vector for the segment, not a unit vector - its magnitude is the cast distance, matching `workspace:Raycast`.
 
 ---
 
 ## Dynamic: Things That Move
 
-`RaycastDynamic` proxies can be repositioned or resized after insertion. Movement is incremental — the tree refits along the path from the moved leaf to the root, and a bounded padding on each AABB absorbs small movements without a refit at all:
+`RaycastDynamic` proxies can be repositioned or resized after insertion. Movement is incremental - the tree refits along the path from the moved leaf to the root, and a bounded padding on each AABB absorbs small movements without a refit at all:
 
 ```lua
 local RC = Leyr.RaycastDynamic.new()
@@ -77,7 +77,7 @@ If you don't call `Build()` explicitly, the first `Raycast()` after a change pay
 
 ## Custom Shapes, No Instance Required
 
-Every `Insert` accepts an optional shape override. The `Instance` you pass is only used as the map key and the value returned on a hit — the shape and CFrame used for the actual query come from the override:
+Every `Insert` accepts an optional shape override. The `Instance` you pass is only used as the map key and the value returned on a hit - the shape and CFrame used for the actual query come from the override:
 
 ```lua
 local Shape = Leyr.capsule(2, 6) -- radius, height
@@ -125,4 +125,4 @@ RC:Clear() -- drops every proxy and resets internal state
 
 ## Origin-Inside Hits
 
-If the ray starts inside a shape, the narrow-phase test reports the exit point but the traversal discards it — matching native `workspace:Raycast`, which ignores parts the ray originates in. The query continues to the next candidate along the ray instead of returning that exit point.
+If the ray starts inside a shape, the narrow-phase test reports the exit point but the traversal discards it - matching native `workspace:Raycast`, which ignores parts the ray originates in. The query continues to the next candidate along the ray instead of returning that exit point.

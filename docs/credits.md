@@ -10,7 +10,7 @@ Leyr is built and maintained by **VeDevelopment**.
 
 ## Author
 
-Leyr was designed, written, and is actively maintained by the VeDevelopment team. Every line — the AABB tree, the shape constructors, the analytic ray tests, the fused traversal — is original work.
+Leyr was designed, written, and is actively maintained by the VeDevelopment team. Every line - the AABB tree, the shape constructors, the analytic ray tests, the fused traversal - is original work.
 
 ---
 

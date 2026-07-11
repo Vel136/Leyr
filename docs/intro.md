@@ -30,12 +30,12 @@ if hit then
 end
 ```
 
-`Insert` reads the shape and CFrame directly from the part — no separate registration step. `Raycast` returns a Roblox-shaped result table, or `nil` if nothing was hit.
+`Insert` reads the shape and CFrame directly from the part - no separate registration step. `Raycast` returns a Roblox-shaped result table, or `nil` if nothing was hit.
 
 ## Dynamic or Static?
 
-- **`RaycastDynamic`** — proxies can `Move` or `UpdateTransform` after insertion. Use this for anything that changes position or size during play.
-- **`RaycastStatic`** — insert once, then query. The tree is rebuilt lazily on the first query after any change, which is cheaper than incremental refitting for a world that doesn't move.
+- **`RaycastDynamic`** - proxies can `Move` or `UpdateTransform` after insertion. Use this for anything that changes position or size during play.
+- **`RaycastStatic`** - insert once, then query. The tree is rebuilt lazily on the first query after any change, which is cheaper than incremental refitting for a world that doesn't move.
 
 ```lua
 local Static = Leyr.RaycastStatic.new()
@@ -57,6 +57,6 @@ See [Shapes](./guides/shapes) for the full constructor list and axis conventions
 
 ## Next Steps
 
-- [Shapes](./guides/shapes) — every shape constructor and how axes map to CFrame
-- [Trees](./guides/trees) — dynamic vs static, rebuilds, and when to call each
-- [Performance](./guides/performance) — how the fused traversal prunes the tree, and what changes query cost
+- [Shapes](./guides/shapes) - every shape constructor and how axes map to CFrame
+- [Trees](./guides/trees) - dynamic vs static, rebuilds, and when to call each
+- [Performance](./guides/performance) - how the fused traversal prunes the tree, and what changes query cost
